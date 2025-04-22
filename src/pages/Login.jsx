@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-    Box, Button, Checkbox, FormControlLabel, Paper, TextField, Typography, Stack
+    Box, Button, Checkbox, FormControlLabel, Paper, TextField, Typography, Stack, Modal, Backdrop
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
@@ -19,6 +19,9 @@ const Login = () => {
     const [resetId, setResetId] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [modalMessage, setModalMessage] = useState('');
+    const [modalOpen, setModalOpen] = useState(false);
+
     const navigate = useNavigate();
 
     const handleLogin = () => {
@@ -29,7 +32,8 @@ const Login = () => {
             localStorage.setItem('role', 'user');
             navigate('/dashboard');
         } else {
-            alert('아이디 또는 비밀번호가 올바르지 않습니다.');
+            setModalMessage('아이디 또는 비밀번호가 올바르지 않습니다.');
+            setModalOpen(true);
         }
     };
 
@@ -46,13 +50,20 @@ const Login = () => {
         setConfirmPassword('');
     };
 
+    const handleModalClose = () => {
+        setModalOpen(false);
+        if (modalMessage === '비밀번호가 변경되었습니다.') {
+            resetAll();
+        }
+    };
+
     return (
         <Box className={styles.wrapper}>
             <Box className={styles.circle1} />
             <Box className={styles.circle2} />
             <Paper className={styles.paper} elevation={3}>
-                <Typography variant="h5" className={styles.title}>지하수도 관정 시스템</Typography>
                 <Typography variant="h5" className={styles.title}>㈜한결테크닉스</Typography>
+                <Typography variant="h5" className={styles.title}>지하수도 관정 시스템</Typography>
 
                 {mode === 'login' && (
                     <>
@@ -123,10 +134,11 @@ const Login = () => {
                                    value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         <Button fullWidth variant="contained" color="primary" onClick={() => {
                             if (newPassword !== confirmPassword) {
-                                alert('비밀번호가 일치하지 않습니다.');
+                                setModalMessage('비밀번호가 일치하지 않습니다.');
+                                setModalOpen(true);
                             } else {
-                                alert('비밀번호가 변경되었습니다.');
-                                resetAll();
+                                setModalMessage('비밀번호가 변경되었습니다.');
+                                setModalOpen(true);
                             }
                         }}>
                             비밀번호 변경
@@ -134,6 +146,25 @@ const Login = () => {
                     </>
                 )}
             </Paper>
+
+            {/* 모달 영역 */}
+            <Modal
+                open={modalOpen}
+                onClose={handleModalClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{ timeout: 300 }}
+            >
+                <Box className={styles.modal}>
+                    <Typography className={styles.modalTitle}>
+                        로그인 오류
+                    </Typography>
+                    <Typography className={styles.modalMessage}>
+                        {modalMessage}
+                    </Typography>
+                    <Button variant="contained" onClick={handleModalClose}>확인</Button>
+                </Box>
+            </Modal>
         </Box>
     );
 };

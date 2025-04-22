@@ -27,7 +27,7 @@ const Sidebar = () => {
         <React.Fragment key={item.label}>
             {item.children ? (
                 <>
-                    <ListItem button onClick={() => handleClick(item.label)}>
+                    <ListItem button onClick={() => handleClick(item.label)} className={styles.mainItem}>
                         <ListItemText primary={item.label} />
                         {openItems[item.label] ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
@@ -47,7 +47,7 @@ const Sidebar = () => {
                     </Collapse>
                 </>
             ) : (
-                <ListItem button onClick={() => navigate(item.path)}>
+                <ListItem button onClick={() => navigate(item.path)} className={styles.mainItem}>
                     <ListItemText primary={item.label} />
                 </ListItem>
             )}

@@ -6,7 +6,7 @@
 
 .main {
     flex-grow: 1;
-    margin-left: 240px; /* Sidebar 너비만큼 offset */
+    margin-left: 240px;
     display: flex;
     flex-direction: column;
     overflow: auto;
