@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import GoogleMapReact from 'google-map-react';
+import styles from './Dashboard.module.css';
 
-// 상태별 마커 색상
 const getMarkerColor = (status) => {
     switch (status) {
         case '정상': return 'green';
@@ -27,22 +27,22 @@ const Marker = ({ status }) => (
 );
 
 const Dashboard = () => {
-    const [statistics, setStatistics] = useState({ total: 12, open: 3, error: 2 });
-    const [locations, setLocations] = useState([
+    const [statistics] = useState({ total: 12, open: 3, error: 2 });
+    const [locations] = useState([
         { id: 1, lat: 37.5665, lng: 126.9780, status: '정상', name: '관정 A' },
         { id: 2, lat: 37.5755, lng: 126.9950, status: '오류', name: '관정 B' },
         { id: 3, lat: 37.5600, lng: 126.9700, status: '유지보수 요청', name: '관정 C' },
     ]);
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box className={styles.container}>
             <Sidebar />
-            <Box sx={{ flexGrow: 1 }}>
+            <Box className={styles.main}>
                 <Navbar />
-                <Box sx={{ p: 3 }}>
+                <Box className={styles.content}>
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={4}>
-                            <Paper sx={{ p: 2 }}>
+                            <Paper className={styles.statsCard}>
                                 <Typography variant="h6">지하수 통계</Typography>
                                 <Typography>총 관정: {statistics.total}</Typography>
                                 <Typography>열림: {statistics.open}</Typography>
@@ -50,22 +50,22 @@ const Dashboard = () => {
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={8}>
-                            {/*<Paper sx={{ height: 400 }}>*/}
-                            {/*    <GoogleMapReact*/}
-                            {/*        bootstrapURLKeys={{ key: "YOUR_GOOGLE_MAPS_API_KEY" }}*/}
-                            {/*        defaultCenter={{ lat: 37.5665, lng: 126.9780 }}*/}
-                            {/*        defaultZoom={12}*/}
-                            {/*    >*/}
-                            {/*        {locations.map(loc => (*/}
-                            {/*            <Marker*/}
-                            {/*                key={loc.id}*/}
-                            {/*                lat={loc.lat}*/}
-                            {/*                lng={loc.lng}*/}
-                            {/*                status={loc.status}*/}
-                            {/*            />*/}
-                            {/*        ))}*/}
-                            {/*    </GoogleMapReact>*/}
-                            {/*</Paper>*/}
+                            <Paper className={styles.mapCard}>
+                                {/*<GoogleMapReact*/}
+                                {/*    bootstrapURLKeys={{ key: "YOUR_GOOGLE_MAPS_API_KEY" }}*/}
+                                {/*    defaultCenter={{ lat: 37.5665, lng: 126.9780 }}*/}
+                                {/*    defaultZoom={12}*/}
+                                {/*>*/}
+                                {/*    {locations.map(loc => (*/}
+                                {/*        <Marker*/}
+                                {/*            key={loc.id}*/}
+                                {/*            lat={loc.lat}*/}
+                                {/*            lng={loc.lng}*/}
+                                {/*            status={loc.status}*/}
+                                {/*        />*/}
+                                {/*    ))}*/}
+                                {/*</GoogleMapReact>*/}
+                            </Paper>
                         </Grid>
                     </Grid>
                 </Box>

@@ -1,0 +1,30 @@
+.drawer {
+    width: 240px;
+    flex-shrink: 0;
+    height: 100vh;
+    z-index: 1;
+}
+
+.logo {
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+.logo:hover {
+    background-color: #e8f0fe;
+}
+
+.logoutContainer {
+    padding: 16px;
+    border-top: 1px solid #ddd;
+}
+
+.nestedItem {
+    padding-left: 32px;
+}

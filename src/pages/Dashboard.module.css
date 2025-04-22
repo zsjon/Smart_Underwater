@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.main {
+    flex-grow: 1;
+    margin-left: 240px; /* Sidebar 너비만큼 offset */
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.content {
+    padding: 24px;
+}
+
+.statsCard {
+    padding: 16px;
+}
+
+.mapCard {
+    height: 400px;
+}

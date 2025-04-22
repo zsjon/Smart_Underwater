@@ -1,8 +1,11 @@
 import React from 'react';
-import { Drawer, List, ListItem, ListItemText, Collapse, Box, Button } from '@mui/material';
+import {
+    Drawer, List, ListItem, ListItemText, Collapse, Box, Button
+} from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { userMenu, adminMenu } from '../menu/SidebarMenu';
+import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
     const role = localStorage.getItem('role');
@@ -20,64 +23,49 @@ const Sidebar = () => {
         navigate('/');
     };
 
-    const renderMenu = (items) =>
-        items.map((item) => (
-            <React.Fragment key={item.label}>
-                {item.children ? (
+    const renderMenu = (items) => items.map((item) => (
+        <React.Fragment key={item.label}>
+            {item.children ? (
+                <>
                     <ListItem button onClick={() => handleClick(item.label)}>
                         <ListItemText primary={item.label} />
                         {openItems[item.label] ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
-                ) : (
-                    <ListItem button onClick={() => navigate(item.path)}>
-                        <ListItemText primary={item.label} />
-                    </ListItem>
-                )}
-                {item.children && (
                     <Collapse in={openItems[item.label]} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
                             {item.children.map((sub) => (
                                 <ListItem
                                     key={sub.label}
                                     button
-                                    sx={{ pl: 4 }}
                                     onClick={() => navigate(sub.path)}
+                                    className={styles.nestedItem}
                                 >
                                     <ListItemText primary={sub.label} />
                                 </ListItem>
                             ))}
                         </List>
                     </Collapse>
-                )}
-            </React.Fragment>
-        ));
+                </>
+            ) : (
+                <ListItem button onClick={() => navigate(item.path)}>
+                    <ListItemText primary={item.label} />
+                </ListItem>
+            )}
+        </React.Fragment>
+    ));
 
     return (
         <Drawer
             variant="permanent"
-            sx={{ width: 240, flexShrink: 0 }}
-            PaperProps={{ sx: { width: 240, display: 'flex', flexDirection: 'column' } }}
+            classes={{ paper: styles.drawer }}
         >
-            {/* 🔷 로고 박스 */}
-            <Box
-                sx={{
-                    p: 2,
-                    textAlign: 'center',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    fontSize: 20,
-                    borderBottom: '1px solid #ddd',
-                }}
-                onClick={() => navigate('/dashboard')}
-            >
+            <Box className={styles.logo} onClick={() => navigate('/dashboard')}>
                 ㈜한결테크닉스
             </Box>
 
-            {/* 메뉴 */}
-            <List sx={{ flexGrow: 1 }}>{renderMenu(menuList)}</List>
+            <List>{renderMenu(menuList)}</List>
 
-            {/* 로그아웃 */}
-            <Box sx={{ p: 2 }}>
+            <Box className={styles.logoutContainer}>
                 <Button variant="outlined" color="error" fullWidth onClick={handleLogout}>
                     로그아웃
                 </Button>

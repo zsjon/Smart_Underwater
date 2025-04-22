@@ -3,24 +3,23 @@ import {
     Box, Button, Checkbox, FormControlLabel, Paper, TextField, Typography, Stack
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import styles from './Login.module.css';
 
 const Login = () => {
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const [mode, setMode] = useState('login'); // 'login' | 'findId' | 'resetPw'
+    const [mode, setMode] = useState('login');
     const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
     const [foundId, setFoundId] = useState(null);
-    const navigate = useNavigate();
-
-    // 비밀번호 찾기 로직 상태들
-    const [resetStep, setResetStep] = useState('verify'); // 'verify' or 'change'
+    const [resetStep, setResetStep] = useState('verify');
     const [resetUser, setResetUser] = useState('');
     const [resetPhone, setResetPhone] = useState('');
     const [resetId, setResetId] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = () => {
         if (id === 'admin' && password === 'admin123') {
@@ -48,46 +47,29 @@ const Login = () => {
     };
 
     return (
-        <Box sx={{
-            height: '100vh',
-            backgroundColor: '#f2f6fa',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative',
-            overflow: 'hidden'
-        }}>
-            <Box sx={{
-                position: 'absolute', width: 400, height: 400, borderRadius: '50%',
-                background: 'linear-gradient(135deg, #6bc1ff, #72d4c9)',
-                top: -100, right: -100, opacity: 0.3
-            }} />
-            <Box sx={{
-                position: 'absolute', width: 300, height: 300, borderRadius: '50%',
-                background: 'linear-gradient(135deg, #a48bff, #9bc2ff)',
-                bottom: -100, left: -100, opacity: 0.3
-            }} />
-            <Paper elevation={3} sx={{ p: 4, width: 360, zIndex: 2 }}>
-                <Typography variant="h5" align="center" sx={{ mb: 2, fontWeight: 'bold' }}>
-                    지하수도 관정 시스템
-                </Typography>
-                <Typography variant="h5" align="center" sx={{ mb: 2, fontWeight: 'bold' }}>
-                    ㈜한결테크닉스
-                </Typography>
+        <Box className={styles.wrapper}>
+            <Box className={styles.circle1} />
+            <Box className={styles.circle2} />
+            <Paper className={styles.paper} elevation={3}>
+                <Typography variant="h5" className={styles.title}>지하수도 관정 시스템</Typography>
+                <Typography variant="h5" className={styles.title}>㈜한결테크닉스</Typography>
 
                 {mode === 'login' && (
                     <>
-                        <TextField fullWidth label="아이디" variant="outlined" sx={{ mb: 2 }}
-                                   value={id} onChange={(e) => setId(e.target.value)} />
-                        <TextField fullWidth label="비밀번호"
-                                   type={showPassword ? 'text' : 'password'} variant="outlined"
-                                   sx={{ mb: 1 }} value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <FormControlLabel
-                            control={<Checkbox checked={showPassword} onChange={() => setShowPassword(!showPassword)} />}
-                            label="비밀번호 표시" />
-                        <Button fullWidth variant="contained" color="primary" onClick={handleLogin} sx={{ mt: 2 }}>
-                            LOGIN
-                        </Button>
+                        <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
+                            <TextField fullWidth label="아이디" variant="outlined" sx={{ mb: 2 }}
+                                       value={id} onChange={(e) => setId(e.target.value)} />
+                            <TextField fullWidth label="비밀번호"
+                                       type={showPassword ? 'text' : 'password'} variant="outlined" sx={{ mb: 1 }}
+                                       value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <FormControlLabel
+                                control={<Checkbox checked={showPassword} onChange={() => setShowPassword(!showPassword)} />}
+                                label="비밀번호 표시"
+                            />
+                            <Button fullWidth variant="contained" color="primary" type="submit" sx={{ mt: 2 }}>
+                                LOGIN
+                            </Button>
+                        </form>
                         <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 2 }}>
                             <Button size="small" onClick={() => setMode('findId')}>아이디 찾기</Button>
                             <Button size="small" onClick={() => setMode('resetPw')}>비밀번호 찾기</Button>
@@ -126,8 +108,7 @@ const Login = () => {
                                    value={resetPhone} onChange={(e) => setResetPhone(e.target.value)} />
                         <TextField fullWidth label="아이디" variant="outlined" sx={{ mb: 2 }}
                                    value={resetId} onChange={(e) => setResetId(e.target.value)} />
-                        <Button fullWidth variant="contained" color="primary"
-                                onClick={() => setResetStep('change')}>
+                        <Button fullWidth variant="contained" color="primary" onClick={() => setResetStep('change')}>
                             인증
                         </Button>
                     </>
@@ -136,9 +117,9 @@ const Login = () => {
                 {mode === 'resetPw' && resetStep === 'change' && (
                     <>
                         <Typography variant="h6" sx={{ mb: 2 }}>새 비밀번호 입력</Typography>
-                        <TextField fullWidth label="새 비밀번호" variant="outlined" type="password" sx={{ mb: 2 }}
+                        <TextField fullWidth label="새 비밀번호" type="password" variant="outlined" sx={{ mb: 2 }}
                                    value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-                        <TextField fullWidth label="비밀번호 확인" variant="outlined" type="password" sx={{ mb: 2 }}
+                        <TextField fullWidth label="비밀번호 확인" type="password" variant="outlined" sx={{ mb: 2 }}
                                    value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         <Button fullWidth variant="contained" color="primary" onClick={() => {
                             if (newPassword !== confirmPassword) {
