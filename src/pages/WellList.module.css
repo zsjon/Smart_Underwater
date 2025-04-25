@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.main {
+    flex-grow: 1;
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.filterPanel {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 16px;
+}
+
+.filterButton {
+    height: 56px;
+    align-self: flex-end;
+}

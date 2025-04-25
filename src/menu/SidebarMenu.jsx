@@ -49,7 +49,7 @@ export const adminMenu = [
         children: [
             { label: '목록', path: '/wells' },
             { label: '보고서', path: '/wells/report' },
-            { label: '통계', path: '/wells/stats' },
+            // { label: '통계', path: '/wells/stats' },
         ],
     },
     {

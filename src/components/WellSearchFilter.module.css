@@ -1,0 +1,14 @@
+.filterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.filterField {
+    flex: 1 1 200px;
+    min-width: 200px;
+}

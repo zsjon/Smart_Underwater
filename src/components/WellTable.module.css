@@ -1,0 +1,15 @@
+.tableWrapper {
+    padding: 16px;
+}
+
+.table {
+    min-width: 1000px;
+}
+
+.cellStatus {
+    font-weight: bold;
+}
+
+.cellSwitch {
+    text-align: center;
+}
