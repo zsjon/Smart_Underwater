@@ -134,7 +134,7 @@ const Dashboard = () => {
         <Box className={styles.container}>
             <Sidebar />
             <Box className={styles.main}>
-                <Navbar />
+                <Navbar title="메인 대시보드" />
                 <Box className={styles.content}>
                     <Box className={styles.topSection}>
                         <Paper className={styles.statsCard}>
