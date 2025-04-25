@@ -1,0 +1,89 @@
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.mainContent {
+    flex-grow: 1;
+    margin-left: 240px; /* Sidebar width */
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.section {
+    margin-bottom: 24px;
+}
+
+.fieldBox {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.fileList {
+    list-style: none;
+    padding-left: 0;
+}
+
+.fileList li {
+    margin-bottom: 8px;
+}
+
+.fileTable {
+    width: 100%;
+    margin-top: 16px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.fileTable thead {
+    background-color: #f0f0f0;
+}
+
+.fileTable th, .fileTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.fileTable td a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fileTable td a:hover {
+    text-decoration: underline;
+}
+
+.actionButton {
+    margin-left: 8px;
+    padding: 6px 12px;
+    background-color: #1976d2;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.actionButton:hover {
+    background-color: #145ea8;
+}
+
+.modalBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}

@@ -15,12 +15,13 @@ import {
 import WellSearchFilter from './WellSearchFilter';
 import styles from './WellTable.module.css';
 import ConfirmSwitchModal from '../components/ConfirmSwitchModal';
+import {useNavigate} from "react-router-dom";
 
 const sampleData = [
     {
         id: 1,
         wellNumber: 'W-001',
-        region: '서울/강동구/천호동',
+        region: '서울특별시 강동구 천호동',
         name: '관정 A',
         location: '37.5665, 126.9780',
         motorStatus: '정상',
@@ -29,7 +30,7 @@ const sampleData = [
     {
         id: 2,
         wellNumber: 'W-002',
-        region: '서울/강남구/역삼동',
+        region: '서울특별시 강남구 역삼동',
         name: '관정 B',
         location: '37.5000, 127.0364',
         motorStatus: '오류',
@@ -48,6 +49,9 @@ const WellTable = () => {
     });
     const [open, setOpen] = useState(false);
     const [selectedSwitch, setSelectedSwitch] = useState(null);
+
+    const navigate = useNavigate();
+
     const handleOpenModal = (rowId, type) => {
         setSelectedSwitch({ rowId, type });
         setOpen(true);
@@ -104,7 +108,12 @@ const WellTable = () => {
                                 <TableCell>{index + 1}</TableCell>
                                 <TableCell>{row.wellNumber}</TableCell>
                                 <TableCell>{row.region}</TableCell>
-                                <TableCell>{row.name}</TableCell>
+                                <TableCell
+                                    className={styles.clickable}
+                                    onClick={() => navigate(`/wells/${row.id}`)}
+                                >
+                                    {row.name}
+                                </TableCell>
                                 <TableCell>{row.location}</TableCell>
                                 <TableCell>{row.motorStatus}</TableCell>
                                 <TableCell>{row.doorStatus}</TableCell>

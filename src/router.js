@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import UserRegister from "./pages/UserRegister";
 import WellList from "./pages/WellList";
+import WellDetail from "./pages/WellDetail";
 
 const Router = () => {
     return (
@@ -12,6 +13,7 @@ const Router = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/user-register" element={<UserRegister />} />
             <Route path="/wells" element={<WellList />} />
+            <Route path="/wells/:id" element={<WellDetail />} />
         </Routes>
     );
 };
