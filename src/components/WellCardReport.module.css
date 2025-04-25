@@ -1,0 +1,41 @@
+.container {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.infoSection {
+    margin-bottom: 24px;
+}
+
+.infoSection h3 {
+    margin-bottom: 12px;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fieldGroup label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

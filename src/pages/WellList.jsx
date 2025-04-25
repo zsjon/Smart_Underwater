@@ -40,7 +40,8 @@ const WellList = () => {
         <div className={styles.container}>
             <Sidebar />
             <div className={styles.main}>
-                <Navbar title="관정 목록" />                {/*<WellSearchFilter filters={filters} onChange={handleFilterChange} />*/}
+                <Navbar title="관정 목록" />
+                {/*<WellSearchFilter filters={filters} onChange={handleFilterChange} />*/}
                 <WellTable wells={filteredWells} />
             </div>
         </div>

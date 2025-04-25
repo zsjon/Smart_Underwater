@@ -1,0 +1,36 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.section {
+    margin-bottom: 32px;
+    padding: 24px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section h6 {
+    margin-bottom: 16px;
+    color: #333;
+}
+
+textarea,
+input,
+label {
+    font-size: 14px;
+}
+
+.MuiTextField-root {
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.MuiTypography-subtitle1 {
+    margin-bottom: 4px;
+    color: #555;
+}
