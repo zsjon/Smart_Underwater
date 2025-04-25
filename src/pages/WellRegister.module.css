@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.main {
+    flex-grow: 1;
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.paper {
+    margin: 24px;
+    padding: 32px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}

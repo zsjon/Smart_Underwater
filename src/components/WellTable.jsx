@@ -15,7 +15,8 @@ import {
 import WellSearchFilter from './WellSearchFilter';
 import styles from './WellTable.module.css';
 import ConfirmSwitchModal from '../components/ConfirmSwitchModal';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 const sampleData = [
     {
@@ -52,6 +53,14 @@ const WellTable = () => {
 
     const navigate = useNavigate();
 
+    const handleRegister = () => {
+        navigate('/wells/register');
+    };
+
+    const handleDelete = () => {
+        alert('선택한 항목을 삭제하는 기능은 아직 구현되지 않았습니다.');
+    };
+
     const handleOpenModal = (rowId, type) => {
         setSelectedSwitch({ rowId, type });
         setOpen(true);
@@ -87,6 +96,14 @@ const WellTable = () => {
     return (
         <Box className={styles.container}>
             <WellSearchFilter filters={filters} onFilterChange={handleFilterChange} />
+            <div className={styles.actionButtons}>
+                <Button variant="contained" color="primary" onClick={handleRegister}>
+                    등록
+                </Button>
+                <Button variant="outlined" color="error" onClick={handleDelete}>
+                    삭제
+                </Button>
+            </div>
             <TableContainer component={Paper}>
                 <Table className={styles.table}>
                     <TableHead>

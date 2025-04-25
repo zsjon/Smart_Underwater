@@ -19,3 +19,10 @@
     color: #1976d2;
     text-decoration: underline;
 }
+
+.actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 16px 24px;
+}

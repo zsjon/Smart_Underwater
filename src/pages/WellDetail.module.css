@@ -5,9 +5,10 @@
 
 .mainContent {
     flex-grow: 1;
-    margin-left: 240px; /* Sidebar width */
+    margin-left: 240px;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 
 .content {
@@ -20,11 +21,11 @@
 }
 
 .fieldBox {
-    padding: 20px;
-    margin-bottom: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background-color: white;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .fileList {
@@ -86,4 +87,11 @@
     padding: 24px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.editButtonBox {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 24px;
 }
