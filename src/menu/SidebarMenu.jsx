@@ -1,5 +1,3 @@
-// sidebarMenu.js
-
 export const userMenu = [
     { label: '대시보드', path: '/dashboard' },
     {
