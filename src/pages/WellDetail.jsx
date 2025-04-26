@@ -1,6 +1,6 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
-import styles from './WellDetail.module.css';
+import styles from '../css/pages/WellDetail.module.css';
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import {Box, Button, Paper, TextField, Typography} from '@mui/material';
@@ -67,7 +67,7 @@ const WellDetail = () => {
 
                 <Box className={styles.content}>
                     <Paper className={styles.fieldBox}>
-                        <Typography variant="h6" gutterBottom>📍 위치 및 기본 정보</Typography>
+                        <Typography variant="h6" gutterBottom>위치 및 기본 정보</Typography>
                         <TextField label="관정넘버" fullWidth value={editedData.wellNumber}
                                    onChange={e => handleInputChange('wellNumber', e.target.value)}
                                    InputProps={{readOnly: !isEditing}} margin="dense"/>
@@ -89,7 +89,7 @@ const WellDetail = () => {
                     </Paper>
 
                     <Paper className={styles.fieldBox}>
-                        <Typography variant="h6" gutterBottom>🛠️ 지하수 시설 및 구조</Typography>
+                        <Typography variant="h6" gutterBottom>지하수 시설 및 구조</Typography>
                         <TextField label="동력장치 정보" fullWidth value={editedData.powerUnit}
                                    onChange={e => handleInputChange('powerUnit', e.target.value)}
                                    InputProps={{readOnly: !isEditing}} margin="dense"/>
@@ -111,7 +111,7 @@ const WellDetail = () => {
                     </Paper>
 
                     <Paper className={styles.fieldBox}>
-                        <Typography variant="h6" gutterBottom>💧 용도 및 운영 정보</Typography>
+                        <Typography variant="h6" gutterBottom>용도 및 운영 정보</Typography>
                         <TextField label="용도" fullWidth value={editedData.usage}
                                    onChange={e => handleInputChange('usage', e.target.value)}
                                    InputProps={{readOnly: !isEditing}} margin="dense"/>
@@ -127,7 +127,7 @@ const WellDetail = () => {
                     </Paper>
 
                     <Paper className={styles.fieldBox}>
-                        <Typography variant="h6" gutterBottom>🎥 CCTV 정보</Typography>
+                        <Typography variant="h6" gutterBottom>CCTV 정보</Typography>
                         <TextField label="CCTV 웹 주소" fullWidth value={editedData.cctvUrl}
                                    onChange={e => handleInputChange('cctvUrl', e.target.value)}
                                    InputProps={{readOnly: !isEditing}} margin="dense"/>
@@ -137,7 +137,7 @@ const WellDetail = () => {
                     </Paper>
 
                     <Paper className={styles.fieldBox}>
-                        <Typography variant="h6" gutterBottom>👤 소유자 정보</Typography>
+                        <Typography variant="h6" gutterBottom>소유자 정보</Typography>
                         <TextField label="소유자명" fullWidth value={editedData.owner}
                                    onChange={e => handleInputChange('owner', e.target.value)}
                                    InputProps={{readOnly: !isEditing}} margin="dense"/>

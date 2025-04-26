@@ -37,12 +37,12 @@ export const userMenu = [
 export const adminMenu = [
     { label: '대시보드', path: '/dashboard' },
     {
-        label: '회원관리',
-        children: [
-            { label: '목록', path: '/users' },
-            { label: '상세', path: '/users/detail' },
-            { label: '등록/수정/삭제', path: '/users/edit' },
-        ],
+        label: '회원관리', path: '/users'
+        // children: [
+        //     { label: '목록', path: '/users' },
+        //     { label: '상세', path: '/users/detail' },
+        //     { label: '등록/수정/삭제', path: '/users/edit' },
+        // ],
     },
     {
         label: '관정(원격제어 포함)',

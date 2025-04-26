@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './WellSummaryReport.module.css';
+import styles from '../css/components/WellSummaryReport.module.css';
 import { TextField, Button, Typography, Box } from '@mui/material';
 
 const dummyWellData = {
@@ -53,7 +53,7 @@ const WellSummaryReport = () => {
             </Box>
 
             <Box className={styles.section}>
-                <Typography variant="h6">📅 보고 기간</Typography>
+                <Typography variant="h6">보고 기간</Typography>
                 <Box display="flex" gap={2}>
                     <TextField
                         label="시작일"
@@ -75,7 +75,7 @@ const WellSummaryReport = () => {
             </Box>
 
             <Box className={styles.section}>
-                <Typography variant="h6">📊 통계 내역</Typography>
+                <Typography variant="h6">통계 내역</Typography>
                 <TextField
                     label="총 양수량 (㎥)"
                     fullWidth
@@ -100,7 +100,7 @@ const WellSummaryReport = () => {
             </Box>
 
             <Box className={styles.section}>
-                <Typography variant="h6">📝 기타 의견</Typography>
+                <Typography variant="h6">기타 의견</Typography>
                 <TextField
                     label="기타 의견을 입력하세요"
                     fullWidth

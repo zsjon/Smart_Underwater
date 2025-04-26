@@ -2,13 +2,16 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import UserRegister from "./pages/UserRegister";
+import NewMember from "./pages/NewMember";
 import WellList from "./pages/WellList";
 import WellDetail from "./pages/WellDetail";
-import WellRegister from "./pages/WellRegister";
+import NewWell from "./pages/NewWell";
 import WellReports from "./pages/WellReports";
 import WellCardReport from "./components/WellCardReport";
 import WellSummaryReport from "./components/WellSummaryReport";
+import MemberList from "./pages/MemberList";
+import MemberDetail from "./pages/MemberDetail";
+import UserRegister from "./pages/UserRegister";
 
 const Router = () => {
     return (
@@ -18,10 +21,13 @@ const Router = () => {
             <Route path="/user-register" element={<UserRegister />} />
             <Route path="/wells" element={<WellList />} />
             <Route path="/wells/:id" element={<WellDetail />} />
-            <Route path="/wells/register" element={<WellRegister />} />
+            <Route path="/wells/register" element={<NewWell />} />
             <Route path="/wells/report" element={<WellReports />} />
             <Route path="/wells/report/card/:id" element={<WellCardReport />} />
             <Route path="/wells/report/summary/:id" element={<WellSummaryReport />} />
+            <Route path="/users" element={<MemberList />} />
+            <Route path="/users/:id" element={<MemberDetail />} />
+            <Route path="/users/newmember" element={<NewMember />} />
         </Routes>
     );
 };

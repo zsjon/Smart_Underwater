@@ -5,7 +5,7 @@ import {
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { userMenu, adminMenu } from '../menu/SidebarMenu';
-import styles from './Sidebar.module.css';
+import styles from '../css/components/Sidebar.module.css';
 
 const Sidebar = () => {
     const role = localStorage.getItem('role');

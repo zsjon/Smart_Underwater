@@ -1,0 +1,17 @@
+.tableWrapper {
+    padding: 16px;
+}
+
+.table {
+    min-width: 1000px;
+}
+
+.cellStatus {
+    font-weight: bold;
+}
+
+.clickable {
+    cursor: pointer;
+    color: #1976d2;
+    text-decoration: underline;
+}

@@ -1,28 +1,20 @@
-// components/WellsFilter.jsx
 import React from 'react';
-import {Box, Button, MenuItem, TextField} from '@mui/material';
-import styles from '../css/components/WellSearchFilter.module.css';
+import styles from '../css/components/MemberSearchFilter.module.css';
+import { TextField, Button, MenuItem } from '@mui/material';
 
-const WellsFilter = ({ filters, onFilterChange, onSearch }) => {
-    const handleChange = (e) => {
-        onFilterChange({
-            ...filters,
-            [e.target.name]: e.target.value,
-        });
-    };
-
+const MemberSearchFilter = ({ filters, onChange, onSearch }) => {
     return (
-        <Box className={styles.filterContainer}>
+        <div className={styles.filterContainer}>
             <TextField
                 select
                 label="발주처구분(GBC)"
                 name="gbc"
                 value={filters.gbc}
-                onChange={handleChange}
+                onChange={onChange}
                 variant="outlined"
                 size="small"
                 className={styles.filterField}
-                SelectProps={{ native: true }}
+                SelectProps={{ displayEmpty: true }}
             >
                 <MenuItem value="" disabled></MenuItem>
                 <MenuItem value="공공">공공기관</MenuItem>
@@ -30,28 +22,28 @@ const WellsFilter = ({ filters, onFilterChange, onSearch }) => {
                 <MenuItem value="개인">개인</MenuItem>
             </TextField>
             <TextField
-                label="지역(시/구/동)"
                 name="region"
                 value={filters.region}
-                onChange={handleChange}
+                onChange={onChange}
+                label="지역(시/구/동)"
                 variant="outlined"
                 size="small"
                 className={styles.filterField}
             />
             <TextField
-                label="발주처구분(담당부서)"
-                name="department"
-                value={filters.department}
-                onChange={handleChange}
+                name="dept"
+                value={filters.dept}
+                onChange={onChange}
+                label="담당부서"
                 variant="outlined"
                 size="small"
                 className={styles.filterField}
             />
             <TextField
-                label="관정명"
-                name="wellName"
-                value={filters.wellName}
-                onChange={handleChange}
+                name="name"
+                value={filters.name}
+                onChange={onChange}
+                label="이름"
                 variant="outlined"
                 size="small"
                 className={styles.filterField}
@@ -59,7 +51,8 @@ const WellsFilter = ({ filters, onFilterChange, onSearch }) => {
             <Button variant="contained" color="primary" onClick={onSearch}>
                 검색
             </Button>
-        </Box>
+        </div>
     );
-}
-export default WellsFilter;
+};
+
+export default MemberSearchFilter;

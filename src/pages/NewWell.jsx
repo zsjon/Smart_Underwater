@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from './WellRegister.module.css';
+import styles from '../css/pages/NewWell.module.css';
 import {
     Box,
     Button,
@@ -22,7 +22,7 @@ import Navbar from "../components/Navbar";
 import ControlAuthorityModal from '../components/ControlAuthorityModal';
 import {useNavigate} from 'react-router-dom';
 
-const WellRegister = () => {
+const NewWell = () => {
     const [authorityModalOpen, setAuthorityModalOpen] = useState(false);
     const [authorityUsers, setAuthorityUsers] = useState([]);
     const [selectedFileName, setSelectedFileName] = useState('');
@@ -79,7 +79,7 @@ const WellRegister = () => {
             return;
         }
         alert('등록되었습니다.');
-        navigate('/wells'); // 관정 목록 페이지로 이동
+        navigate('/wells');
     };
 
     return (
@@ -88,8 +88,7 @@ const WellRegister = () => {
             <Box className={styles.main}>
                 <Navbar title="신규 관정 등록"/>
                 <Paper className={styles.paper}>
-                    {/* 위치 및 기본 정보 */}
-                    <Typography variant="h6">📍 위치 및 기본 정보</Typography>
+                    <Typography variant="h6">위치 및 기본 정보</Typography>
                     <Divider sx={{my: 2}}/>
                     <div className={styles.formGrid}>
                         <TextField name="wellId" label="관정넘버" value={form.wellId} onChange={handleChange}/>
@@ -121,8 +120,7 @@ const WellRegister = () => {
                         <TextField name="contractor" label="시공사" value={form.contractor} onChange={handleChange}/>
                     </div>
 
-                    {/* 지하수 시설 및 구조 */}
-                    <Typography variant="h6" sx={{mt: 4}}>🛠️ 지하수 시설 및 구조 정보</Typography>
+                    <Typography variant="h6" sx={{mt: 4}}>지하수 시설 및 구조 정보</Typography>
                     <Divider sx={{my: 2}}/>
                     <div className={styles.formGrid}>
                         <TextField name="powerUnit" label="동력장치 정보" value={form.powerUnit} onChange={handleChange}/>
@@ -133,8 +131,7 @@ const WellRegister = () => {
                         <TextField name="extraEquip" label="부가장치 정보" value={form.extraEquip} onChange={handleChange}/>
                     </div>
 
-                    {/* 용도 및 운영 */}
-                    <Typography variant="h6" sx={{mt: 4}}>💧 용도 및 운영 정보</Typography>
+                    <Typography variant="h6" sx={{mt: 4}}>용도 및 운영 정보</Typography>
                     <Divider sx={{my: 2}}/>
                     <div className={styles.formGrid}>
                         <TextField name="purpose" label="용도" value={form.purpose} onChange={handleChange}/>
@@ -143,8 +140,7 @@ const WellRegister = () => {
                         <TextField name="quality" label="수질정보" value={form.quality} onChange={handleChange}/>
                     </div>
 
-                    {/* CCTV 정보 */}
-                    <Typography variant="h6" sx={{mt: 4}}>🎥 CCTV 정보</Typography>
+                    <Typography variant="h6" sx={{mt: 4}}>CCTV 정보</Typography>
                     <Divider sx={{my: 2}}/>
                     <div className={styles.formGrid}>
                         <TextField name="cctvUrl" label="CCTV 링크 주소" value={form.cctvUrl} onChange={handleChange}/>
@@ -152,8 +148,7 @@ const WellRegister = () => {
                                    onChange={handleChange}/>
                     </div>
 
-                    {/* 제어 권한 */}
-                    <Typography variant="h6" sx={{mt: 4}}>🔐 제어 권한</Typography>
+                    <Typography variant="h6" sx={{mt: 4}}>제어 권한</Typography>
                     <Divider sx={{my: 2}}/>
                     <Box display="flex" justifyContent="flex-end" mb={1}>
                         <Button variant="outlined" onClick={() => setAuthorityModalOpen(true)}>
@@ -219,4 +214,4 @@ const WellRegister = () => {
     );
 };
 
-export default WellRegister;
+export default NewWell;

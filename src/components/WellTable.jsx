@@ -1,21 +1,9 @@
-// components/WellTable.jsx
-import React, { useState, useMemo } from 'react';
-import {
-    Box,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
-    Switch,
-    Typography,
-} from '@mui/material';
+import React, {useMemo, useState} from 'react';
+import {Box, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,} from '@mui/material';
 import WellSearchFilter from './WellSearchFilter';
-import styles from './WellTable.module.css';
+import styles from '../css/components/WellTable.module.css';
 import ConfirmSwitchModal from '../components/ConfirmSwitchModal';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 const sampleData = [
@@ -50,6 +38,7 @@ const WellTable = () => {
     });
     const [open, setOpen] = useState(false);
     const [selectedSwitch, setSelectedSwitch] = useState(null);
+    const [filteredWells, setFilteredWells] = useState(sampleData);
 
     const navigate = useNavigate();
 
@@ -93,9 +82,21 @@ const WellTable = () => {
         });
     }, [data, filters]);
 
+    const handleSearch = () => {
+        const result = sampleData.filter(m => {
+            return (
+                (!filters.id || m.type.includes(filters.id)) &&
+                (!filters.name || m.name.includes(filters.name)) &&
+                (!filters.region || m.region.includes(filters.region)) &&
+                (!filters.wellNumber || m.wellNumber.includes(filters.wellNumber))
+            );
+        });
+        setFilteredWells(result);
+    };
+
     return (
         <Box className={styles.container}>
-            <WellSearchFilter filters={filters} onFilterChange={handleFilterChange} />
+            <WellSearchFilter filters={filters} onFilterChange={handleFilterChange} onSearch={handleSearch}/>
             <div className={styles.actionButtons}>
                 <Button variant="contained" color="primary" onClick={handleRegister}>
                     등록

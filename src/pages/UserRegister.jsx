@@ -10,7 +10,7 @@ import {
     Typography
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import styles from './UserRegister.module.css';
+import styles from '../css/pages/UserRegister.module.css';
 
 const UserRegister = () => {
     const [name, setName] = useState('');

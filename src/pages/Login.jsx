@@ -3,7 +3,7 @@ import {
     Box, Button, Checkbox, FormControlLabel, Paper, TextField, Typography, Stack, Modal, Backdrop
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import styles from './Login.module.css';
+import styles from '../css/pages/Login.module.css';
 
 const Login = () => {
     const [id, setId] = useState('');

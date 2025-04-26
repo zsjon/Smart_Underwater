@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.main {
+    flex-grow: 1;
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.paper {
+    margin: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.selectField {
+    width: 300px;
+    margin-bottom: 24px;
+}
+
+.formArea {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

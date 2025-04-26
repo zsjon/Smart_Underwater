@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './WellCardReport.module.css';
+import styles from '../css/components/WellCardReport.module.css';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -45,7 +45,7 @@ const WellCardReport = () => {
                 <p><strong>허가번호:</strong> {dummyWellData.permitNumber}</p>
                 <p><strong>허가일:</strong> {dummyWellData.permitDate}</p>
                 <p><strong>시공사:</strong> {dummyWellData.contractor}</p>
-                <img src={dummyWellData.photo} alt="관정 사진" className={styles.photo} />
+                {/*<img src={dummyWellData.photo} alt="관정 사진" className={styles.photo} />*/}
             </div>
 
             <form className={styles.form}>
