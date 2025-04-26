@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../css/pages/WellList.module.css';
+import styles from '../../css/pages/WellList.module.css';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import WellTable from '../components/WellTable';

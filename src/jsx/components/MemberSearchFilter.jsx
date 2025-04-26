@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/components/MemberSearchFilter.module.css';
+import styles from '../../css/components/MemberSearchFilter.module.css';
 import { TextField, Button, MenuItem } from '@mui/material';
 
 const MemberSearchFilter = ({ filters, onChange, onSearch }) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/components/MemberTable.module.css';
+import styles from '../../css/components/MemberTable.module.css';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import {useNavigate} from "react-router-dom";
 

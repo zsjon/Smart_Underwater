@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import MemberSearchFilter from '../components/MemberSearchFilter';
 import MemberTable from '../components/MemberTable';
-import styles from '../css/pages/MemberList.module.css';
+import styles from '../../css/pages/MemberList.module.css';
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import generateWebId from "../utils/generateWebId";
+import generateWebId from "../../utils/generateWebId";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 

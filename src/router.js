@@ -1,17 +1,17 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import NewMember from "./pages/NewMember";
-import WellList from "./pages/WellList";
-import WellDetail from "./pages/WellDetail";
-import NewWell from "./pages/NewWell";
-import WellReports from "./pages/WellReports";
-import WellCardReport from "./components/WellCardReport";
-import WellSummaryReport from "./components/WellSummaryReport";
-import MemberList from "./pages/MemberList";
-import MemberDetail from "./pages/MemberDetail";
-import UserRegister from "./pages/UserRegister";
+import Login from './jsx/pages/Login';
+import Dashboard from './jsx/pages/Dashboard';
+import NewMember from "./jsx/pages/NewMember";
+import WellList from "./jsx/pages/WellList";
+import WellDetail from "./jsx/pages/WellDetail";
+import NewWell from "./jsx/pages/NewWell";
+import WellReports from "./jsx/pages/WellReports";
+import WellCardReport from "./jsx/components/WellCardReport";
+import WellSummaryReport from "./jsx/components/WellSummaryReport";
+import MemberList from "./jsx/pages/MemberList";
+import MemberDetail from "./jsx/pages/MemberDetail";
+import UserRegister from "./jsx/pages/UserRegister";
 
 const Router = () => {
     return (

@@ -1,8 +1,8 @@
 import React, {useMemo, useState} from 'react';
 import {Box, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,} from '@mui/material';
 import WellSearchFilter from './WellSearchFilter';
-import styles from '../css/components/WellTable.module.css';
-import ConfirmSwitchModal from '../components/ConfirmSwitchModal';
+import styles from '../../css/components/WellTable.module.css';
+import ConfirmSwitchModal from './ConfirmSwitchModal';
 import {useNavigate} from 'react-router-dom';
 import Button from '@mui/material/Button';
 

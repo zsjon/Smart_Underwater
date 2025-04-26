@@ -1,10 +1,9 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
-import styles from '../css/pages/MemberDetail.module.css';
+import styles from '../../css/pages/MemberDetail.module.css';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
-import generateWebId from "../utils/generateWebId";
-import { dummyData } from '../data/MemberData';
+import { dummyData } from '../../data/MemberData';
 import {
     Box,
     Button,

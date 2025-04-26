@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import styles from '../css/components/WellCardReport.module.css';
+import styles from '../../css/components/WellCardReport.module.css';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 

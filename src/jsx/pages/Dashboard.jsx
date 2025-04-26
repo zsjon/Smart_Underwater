@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {Box, Paper, Typography} from '@mui/material';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
-import styles from '../css/pages/Dashboard.module.css';
+import styles from '../../css/pages/Dashboard.module.css';
 // import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';

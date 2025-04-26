@@ -4,7 +4,7 @@ import {
     RadioGroup, FormControlLabel, Radio
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import styles from '../css/components/ControlAuthorityModal.module.css';
+import styles from '../../css/components/ControlAuthorityModal.module.css';
 
 const dummyUsers = [
     { id: 1, name: '김유저', phone: '010-1234-5678' },

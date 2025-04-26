@@ -1,7 +1,6 @@
-// components/WellsFilter.jsx
 import React from 'react';
 import {Box, Button, MenuItem, TextField} from '@mui/material';
-import styles from '../css/components/WellSearchFilter.module.css';
+import styles from '../../css/components/WellSearchFilter.module.css';
 
 const WellsFilter = ({ filters, onFilterChange, onSearch }) => {
     const handleChange = (e) => {

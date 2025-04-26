@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import styles from '../css/components/WellSummaryReport.module.css';
+import styles from '../../css/components/WellSummaryReport.module.css';
 import { TextField, Button, Typography, Box } from '@mui/material';
 
 const dummyWellData = {

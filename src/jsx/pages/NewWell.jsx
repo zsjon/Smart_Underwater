@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from '../css/pages/NewWell.module.css';
+import styles from '../../css/pages/NewWell.module.css';
 import {
     Box,
     Button,

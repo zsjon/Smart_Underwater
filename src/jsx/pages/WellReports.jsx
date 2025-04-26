@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/pages/WellReports.module.css';
+import styles from '../../css/pages/WellReports.module.css';
 import {Box, Button, Paper, Typography} from '@mui/material';
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";

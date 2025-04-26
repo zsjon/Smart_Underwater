@@ -1,6 +1,6 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
-import styles from '../css/pages/WellDetail.module.css';
+import styles from '../../css/pages/WellDetail.module.css';
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import {Box, Button, Paper, TextField, Typography} from '@mui/material';
