@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import WellTable from '../components/WellTable';
 
-const WellList = () => {
+const AdminWellList = () => {
     const [filters, setFilters] = useState({
         gbType: '',
         region: '',
@@ -48,4 +48,4 @@ const WellList = () => {
     );
 };
 
-export default WellList;
+export default AdminWellList;

@@ -3,7 +3,7 @@ export const userMenu = [
     {
         label: '관정(원격제어 포함)',
         children: [
-            { label: '지하수 목록', path: '/wells' },
+            { label: '지하수 목록', path: '/userWells' },
             { label: '상세 페이지', path: '/wells/detail' },
         ],
     },
@@ -45,7 +45,7 @@ export const adminMenu = [
     {
         label: '관정(원격제어 포함)',
         children: [
-            { label: '목록', path: '/wells' },
+            { label: '목록', path: '/adminWells' },
             { label: '보고서', path: '/wells/report' },
             // { label: '통계', path: '/wells/stats' },
         ],
