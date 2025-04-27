@@ -28,7 +28,7 @@ const sampleData = [
     // 추가 데이터...
 ];
 
-const WellTable = () => {
+const AdminWellTable = () => {
     const [data, setData] = useState(sampleData);
     const [filters, setFilters] = useState({
         gbc: '',
@@ -128,7 +128,7 @@ const WellTable = () => {
                                 <TableCell>{row.region}</TableCell>
                                 <TableCell
                                     className={styles.clickable}
-                                    onClick={() => navigate(`/wells/${row.id}`)}
+                                    onClick={() => navigate(`/adminWells/${row.id}`)}
                                 >
                                     {row.name}
                                 </TableCell>
@@ -163,4 +163,4 @@ const WellTable = () => {
     );
 };
 
-export default WellTable;
+export default AdminWellTable;

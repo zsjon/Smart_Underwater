@@ -4,7 +4,7 @@ import Login from './jsx/pages/Login';
 import Dashboard from './jsx/pages/Dashboard';
 import NewMember from "./jsx/pages/NewMember";
 import AdminWellList from "./jsx/pages/AdminWellList";
-import WellDetail from "./jsx/pages/WellDetail";
+import AdminWellDetail from "./jsx/pages/AdminWellDetail";
 import NewWell from "./jsx/pages/NewWell";
 import WellReports from "./jsx/pages/WellReports";
 import WellCardReport from "./jsx/components/WellCardReport";
@@ -13,6 +13,9 @@ import MemberList from "./jsx/pages/MemberList";
 import MemberDetail from "./jsx/pages/MemberDetail";
 import UserRegister from "./jsx/pages/UserRegister";
 import UserWellList from "./jsx/pages/UserWellList";
+import UserWellDetail from "./jsx/pages/UserWellDetail";
+import UserWellStatis from "./jsx/pages/UserWellStatis";
+import UserWellStatisDetail from "./jsx/pages/UserWellStatisDetail";
 
 const Router = () => {
     return (
@@ -22,7 +25,8 @@ const Router = () => {
             <Route path="/user-register" element={<UserRegister />} />
             <Route path="/adminWells" element={<AdminWellList />} />
             <Route path="/userWells" element={<UserWellList />} />
-            <Route path="/wells/:id" element={<WellDetail />} />
+            <Route path="/adminWells/:id" element={<AdminWellDetail />} />
+            <Route path="/userWells/:id" element={<UserWellDetail />} />
             <Route path="/wells/register" element={<NewWell />} />
             <Route path="/wells/report" element={<WellReports />} />
             <Route path="/wells/report/card/:id" element={<WellCardReport />} />
@@ -30,6 +34,8 @@ const Router = () => {
             <Route path="/users" element={<MemberList />} />
             <Route path="/users/:id" element={<MemberDetail />} />
             <Route path="/users/newmember" element={<NewMember />} />
+            <Route path="/userWells/statistics" element={<UserWellStatisDetail/>} />
+            <Route path="/userWells/:id/statistics" element={<UserWellStatisDetail/>} />
         </Routes>
     );
 };

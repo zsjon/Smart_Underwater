@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import {Box, Button, Paper, TextField, Typography} from '@mui/material';
 
-const WellDetail = () => {
+const AdminWellDetail = () => {
     const { id } = useParams();
     const dummyData = [{
         id: 1,
@@ -151,4 +151,4 @@ const WellDetail = () => {
     );
 };
 
-export default WellDetail;
+export default AdminWellDetail;

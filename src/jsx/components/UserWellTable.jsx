@@ -1,6 +1,5 @@
 import React, {useMemo, useState} from 'react';
 import {Box, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,} from '@mui/material';
-import WellSearchFilter from './WellSearchFilter';
 import styles from '../../css/components/WellTable.module.css';
 import ConfirmSwitchModal from './ConfirmSwitchModal';
 import {useNavigate} from 'react-router-dom';
@@ -123,7 +122,7 @@ const UserWellTable = () => {
                                 <TableCell>{index + 1}</TableCell>
                                 <TableCell
                                     className={styles.clickable}
-                                    onClick={() => navigate(`/wells/${row.id}`)}
+                                    onClick={() => navigate(`/userWells/${row.id}`)}
                                 >
                                     {row.name}
                                 </TableCell>
