@@ -21,6 +21,8 @@ const Login = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [modalMessage, setModalMessage] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
+    const [showVerificationCodeInput, setShowVerificationCodeInput] = useState(false);
+    const [verificationCode, setVerificationCode] = useState('');
 
     const navigate = useNavigate();
 
@@ -115,10 +117,26 @@ const Login = () => {
                         <Typography variant="h6" sx={{ mb: 2 }}>비밀번호 찾기</Typography>
                         <TextField fullWidth label="사용자명" variant="outlined" sx={{ mb: 2 }}
                                    value={resetUser} onChange={(e) => setResetUser(e.target.value)} />
-                        <TextField fullWidth label="전화번호" variant="outlined" sx={{ mb: 2 }}
-                                   value={resetPhone} onChange={(e) => setResetPhone(e.target.value)} />
                         <TextField fullWidth label="아이디" variant="outlined" sx={{ mb: 2 }}
                                    value={resetId} onChange={(e) => setResetId(e.target.value)} />
+                        <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
+                            <TextField fullWidth label="전화번호" variant="outlined" value={resetPhone} onChange={(e) => setResetPhone(e.target.value)}/>
+                            <Button variant="contained" color="inherit"   sx={{ whiteSpace: 'nowrap' }}
+                                    onClick={() => setShowVerificationCodeInput(true)}>
+                                인증 번호 요청
+                            </Button>
+
+                        </Box>
+                        {showVerificationCodeInput && (
+                            <TextField
+                                fullWidth
+                                label="인증코드 입력"
+                                variant="outlined"
+                                sx={{ mb: 2 }}
+                                value={verificationCode}
+                                onChange={(e) => setVerificationCode(e.target.value)}
+                            />
+                        )}
                         <Button fullWidth variant="contained" color="primary" onClick={() => setResetStep('change')}>
                             인증
                         </Button>
