@@ -1,84 +1,54 @@
-import React, { useState } from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
-import ConfirmSwitchModal from '../components/ConfirmSwitchModal';
-import { Box, Button, Paper, Switch, TextField, Typography } from '@mui/material';
-import styles from '../../css/pages/WellDetail.module.css';
-
-const dummyData = [
-    {
-        id: 1,
-        wellNumber: 'W-001',
-        name: '관정 A',
-        region: '서울 강동구 천호동',
-        motorStatus: '정상',
-        doorStatus: '오류',
-        motorSwitch: true,
-        doorSwitch: false,
-    },
-    {
-        id: 2,
-        wellNumber: 'W-002',
-        name: '관정 B',
-        region: '서울 강남구 역삼동',
-        motorStatus: '오류',
-        doorStatus: '정상',
-        motorSwitch: false,
-        doorSwitch: true,
-    },
-];
+import React from 'react';
+import { Box, Typography, Paper, Button } from '@mui/material';
+import Sidebar from "../components/Sidebar";
+import styles from "../../css/pages/WellList.module.css";
+import { ArrowBackIosNew } from '@mui/icons-material';
 
 const UserWellStatis = () => {
-    const { id } = useParams();
-    const well = dummyData.find(w => w.id.toString() === id);
-
-    const [isEditing, setIsEditing] = useState(false);
-    const [editedData, setEditedData] = useState({ ...well });
-    const [modalOpen, setModalOpen] = useState(false);
-    const [pendingSwitch, setPendingSwitch] = useState(null);
-
-    const navigate = useNavigate();
-
-    if (!well) return <div>관정을 찾을 수 없습니다.</div>;
-
-    const handleInputChange = (field, value) => {
-        setEditedData(prev => ({ ...prev, [field]: value }));
-    };
-
-    const handleOpenModal = (field) => {
-        setPendingSwitch(field);
-        setModalOpen(true);
-    };
-
-    const handleConfirmSwitch = () => {
-        if (!pendingSwitch) return;
-        setEditedData(prev => ({
-            ...prev,
-            [pendingSwitch]: !prev[pendingSwitch],
-        }));
-        setPendingSwitch(null);
-        setModalOpen(false);
-    };
-
-    const handleCancelSwitch = () => {
-        setPendingSwitch(null);
-        setModalOpen(false);
-    };
-
-    const handleCancelEdit = () => {
-        setEditedData({ ...well });
-        setIsEditing(false);
-    };
-
-    const handleSave = () => {
-        console.log('저장됨:', editedData);
-        setIsEditing(false);
-    };
-
     return (
-        <div>
-            통계 ^^
+        <div className={styles.container}>
+            <Sidebar />
+            <div className={styles.main}>
+                <Box p={4}>
+                    {/* 타이틀 */}
+                    <Typography variant="h4" fontWeight="bold" gutterBottom>
+                        전체 관정 그룹 통계
+                    </Typography>
+
+                    {/* 그래프 들어갈 박스 */}
+                    <Paper elevation={3} sx={{ p: 4, borderRadius: 3, mt: 3 }}>
+                        <Typography variant="h6" color="text.secondary" gutterBottom>
+                            전체 관정 평균 데이터 통계 그래프
+                        </Typography>
+
+                        <Box mt={2} textAlign="center" color="gray">
+                            (여기에 모든 관정의 평균값 그래프 표시 예정)
+                        </Box>
+                    </Paper>
+
+                    {/* 돌아가기 버튼 (필요 시) */}
+                    <Box mt={5} textAlign="center">
+                        <Button
+                            variant="outlined"
+                            startIcon={<ArrowBackIosNew />}
+                            sx={{
+                                px: 4,
+                                py: 1.8,
+                                fontWeight: 'bold',
+                                fontSize: '1.1rem',
+                                borderRadius: 3,
+                                textTransform: 'none',
+                                '&:hover': {
+                                    backgroundColor: '#f0f0f0',
+                                },
+                            }}
+                            onClick={() => window.history.back()}
+                        >
+                            돌아가기
+                        </Button>
+                    </Box>
+                </Box>
+            </div>
         </div>
     );
 };

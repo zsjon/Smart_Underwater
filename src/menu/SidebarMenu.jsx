@@ -3,15 +3,15 @@ export const userMenu = [
     {
         label: '관정(원격제어 포함)',
         children: [
-            { label: '지하수 목록', path: '/userWells' },
+            { label: '지하수 목록', path: '/userWells/list' },
             { label: '상세 페이지', path: '/wells/detail' },
         ],
     },
     {
         label: '실시간 데이터',
         children: [
-            { label: '목록', path: '/realtime' },
-            { label: '통계', path: '/realtime/stats' },
+            { label: '목록', path: '/userWells/live' },
+            { label: '통계', path: '/userWells/statistics' },
         ],
     },
     {

@@ -16,6 +16,7 @@ import UserWellList from "./jsx/pages/UserWellList";
 import UserWellDetail from "./jsx/pages/UserWellDetail";
 import UserWellStatis from "./jsx/pages/UserWellStatis";
 import UserWellStatisDetail from "./jsx/pages/UserWellStatisDetail";
+import UserWellLive from "./jsx/pages/UserWellLive";
 
 const Router = () => {
     return (
@@ -24,7 +25,7 @@ const Router = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/user-register" element={<UserRegister />} />
             <Route path="/adminWells" element={<AdminWellList />} />
-            <Route path="/userWells" element={<UserWellList />} />
+            <Route path="/userWells/list" element={<UserWellList />} />
             <Route path="/adminWells/:id" element={<AdminWellDetail />} />
             <Route path="/userWells/:id" element={<UserWellDetail />} />
             <Route path="/wells/register" element={<NewWell />} />
@@ -34,7 +35,8 @@ const Router = () => {
             <Route path="/users" element={<MemberList />} />
             <Route path="/users/:id" element={<MemberDetail />} />
             <Route path="/users/newmember" element={<NewMember />} />
-            <Route path="/userWells/statistics" element={<UserWellStatisDetail/>} />
+            <Route path="/userWells/live" element={<UserWellLive />} />
+            <Route path="/userWells/statistics" element={<UserWellStatis/>} />
             <Route path="/userWells/:id/statistics" element={<UserWellStatisDetail/>} />
         </Routes>
     );
