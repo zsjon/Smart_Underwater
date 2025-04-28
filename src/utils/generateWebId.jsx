@@ -22,7 +22,7 @@ const generateWebId = (member, index) => {
     const cityMap = {
         '영천시': 'F',
         '구미시': 'E',
-        '영천': 'F', // region 명만으로 판단할 경우 예시
+        '영천': 'F',
         '서울': 'A',
         '부산': 'B'
     };

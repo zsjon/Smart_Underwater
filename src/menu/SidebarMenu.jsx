@@ -1,12 +1,11 @@
 export const userMenu = [
     { label: '대시보드', path: '/dashboard' },
-    {
-        label: '관정(원격제어 포함)',
-        children: [
-            { label: '지하수 목록', path: '/wells' },
-            { label: '상세 페이지', path: '/wells/detail' },
-        ],
-    },
+    { label: '지하수 관정', path: '/wells' },
+    //     children: [
+    //         { label: '지하수 목록', path: '/wells' },
+    //         { label: '상세 페이지', path: '/wells/detail' },
+    //     ],
+    // },
     {
         label: '실시간 데이터',
         children: [
@@ -34,20 +33,12 @@ export const userMenu = [
 
 export const adminMenu = [
     { label: '대시보드', path: '/dashboard' },
-    {
-        label: '회원관리', path: '/users'
-        // children: [
-        //     { label: '목록', path: '/users' },
-        //     { label: '상세', path: '/users/detail' },
-        //     { label: '등록/수정/삭제', path: '/users/edit' },
-        // ],
-    },
+    { label: '회원관리', path: '/users' },
     {
         label: '관정(원격제어 포함)',
         children: [
             { label: '목록', path: '/wells' },
-            { label: '보고서', path: '/wells/report' },
-            // { label: '통계', path: '/wells/stats' },
+            { label: '보고서', path: '/wells/report' }
         ],
     },
     {

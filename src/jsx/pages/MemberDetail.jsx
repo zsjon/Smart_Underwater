@@ -21,33 +21,6 @@ const MemberDetail = () => {
     const {id} = useParams();
     const [isEditing, setIsEditing] = React.useState(false);
 
-    // const dummyData = [
-    //     {
-    //         type: '공공기관',
-    //         org: '환경부',
-    //         dept: '물관리국',
-    //         phone: '02-1234-5678',
-    //         name: '홍길동',
-    //         wells: [{ region: '서울', name: '금호읍', location: '좌표', motorStatus: '정상', doorStatus: '정상', control: '가능' }]
-    //     },
-    //     {
-    //         type: '기업',
-    //         name: '이영희',
-    //         phone: '010-2345-6789',
-    //         org: '한결테크닉스',
-    //         dept: '기술부',
-    //         wells: [{ region: '부산', name: '청도면', location: '좌표', motorStatus: '정상', doorStatus: '정상', control: '가능' }]
-    //     },
-    //     {
-    //         type: '개인',
-    //         name: '김철수',
-    //         phone: '010-3456-7890',
-    //         org: '-',
-    //         dept: '-',
-    //         wells: [{ region: '경북', name: '동부동', location: '좌표', motorStatus: '정상', doorStatus: '정상', control: '가능' }]
-    //     }
-    // ].map((m, i) => ({ ...m, id: generateWebId(m, i) }));
-
     const [member, setMember] = React.useState(() => {
         const selected = dummyData.find(m => m.id === id);
         return selected || {wells: []};

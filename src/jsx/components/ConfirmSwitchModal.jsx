@@ -11,14 +11,14 @@ const ConfirmSwitchModal = ({ open, onClose, onConfirm }) => {
         if (step === 1) {
             setStep(2);
         } else {
-            onConfirm(); // 최종 승인 처리
+            onConfirm();
             handleClose();
         }
     };
 
     const handleClose = () => {
         setStep(1);
-        onClose(); // 모달 닫기
+        onClose();
     };
 
     const message = step === 1

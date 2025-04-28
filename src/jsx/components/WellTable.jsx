@@ -1,35 +1,17 @@
-import React, {useMemo, useState} from 'react';
-import {Box, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,} from '@mui/material';
+import React, { useMemo, useState } from 'react';
+import { Box, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import WellSearchFilter from './WellSearchFilter';
 import styles from '../../css/components/WellTable.module.css';
 import ConfirmSwitchModal from './ConfirmSwitchModal';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
-
-const sampleData = [
-    {
-        id: 1,
-        wellNumber: 'W-001',
-        region: '서울특별시 강동구 천호동',
-        name: '관정 A',
-        location: '37.5665, 126.9780',
-        motorStatus: '정상',
-        doorStatus: '오류',
-    },
-    {
-        id: 2,
-        wellNumber: 'W-002',
-        region: '서울특별시 강남구 역삼동',
-        name: '관정 B',
-        location: '37.5000, 127.0364',
-        motorStatus: '오류',
-        doorStatus: '정상',
-    },
-    // 추가 데이터...
-];
+import { WellDummyData } from '../../data/WellData';
 
 const WellTable = () => {
-    const [data, setData] = useState(sampleData);
+    const role = localStorage.getItem('role');
+    const navigate = useNavigate();
+
+    const [data, setData] = useState(WellDummyData);
     const [filters, setFilters] = useState({
         gbc: '',
         region: '',
@@ -38,9 +20,6 @@ const WellTable = () => {
     });
     const [open, setOpen] = useState(false);
     const [selectedSwitch, setSelectedSwitch] = useState(null);
-    const [filteredWells, setFilteredWells] = useState(sampleData);
-
-    const navigate = useNavigate();
 
     const handleRegister = () => {
         navigate('/wells/register');
@@ -83,37 +62,41 @@ const WellTable = () => {
     }, [data, filters]);
 
     const handleSearch = () => {
-        const result = sampleData.filter(m => {
+        const result = WellDummyData.filter(m => {
             return (
-                (!filters.id || m.type.includes(filters.id)) &&
-                (!filters.name || m.name.includes(filters.name)) &&
+                (!filters.gbc || m.gbc?.includes(filters.gbc)) &&
                 (!filters.region || m.region.includes(filters.region)) &&
-                (!filters.wellNumber || m.wellNumber.includes(filters.wellNumber))
+                (!filters.department || m.department?.includes(filters.department)) &&
+                (!filters.wellName || m.name.includes(filters.wellName))
             );
         });
-        setFilteredWells(result);
+        setData(result);
     };
 
     return (
         <Box className={styles.container}>
-            <WellSearchFilter filters={filters} onFilterChange={handleFilterChange} onSearch={handleSearch}/>
-            <div className={styles.actionButtons}>
-                <Button variant="contained" color="primary" onClick={handleRegister}>
-                    등록
-                </Button>
-                <Button variant="outlined" color="error" onClick={handleDelete}>
-                    삭제
-                </Button>
-            </div>
+            {role === 'admin' && (
+                <WellSearchFilter filters={filters} onFilterChange={handleFilterChange} onSearch={handleSearch} />
+            )}
+            {role === 'admin' && (
+                <div className={styles.actionButtons}>
+                    <Button variant="contained" color="primary" onClick={handleRegister}>
+                        등록
+                    </Button>
+                    <Button variant="outlined" color="error" onClick={handleDelete}>
+                        삭제
+                    </Button>
+                </div>
+            )}
             <TableContainer component={Paper}>
                 <Table className={styles.table}>
                     <TableHead>
                         <TableRow>
                             <TableCell>NO</TableCell>
-                            <TableCell>관정넘버</TableCell>
-                            <TableCell>지역</TableCell>
-                            <TableCell>이름</TableCell>
-                            <TableCell>위치</TableCell>
+                            {role === 'admin' && <TableCell>관정넘버</TableCell>}
+                            <TableCell>{role === 'admin' ? '지역' : '주소'}</TableCell>
+                            <TableCell>{role === 'admin' ? '이름' : '관정명'}</TableCell>
+                            {role === 'admin' && <TableCell>위치</TableCell>}
                             <TableCell>모터 상태</TableCell>
                             <TableCell>도어 상태</TableCell>
                             <TableCell>모터 제어</TableCell>
@@ -124,7 +107,7 @@ const WellTable = () => {
                         {filteredData.map((row, index) => (
                             <TableRow key={row.id}>
                                 <TableCell>{index + 1}</TableCell>
-                                <TableCell>{row.wellNumber}</TableCell>
+                                {role === 'admin' && <TableCell>{row.wellNumber}</TableCell>}
                                 <TableCell>{row.region}</TableCell>
                                 <TableCell
                                     className={styles.clickable}
@@ -132,7 +115,7 @@ const WellTable = () => {
                                 >
                                     {row.name}
                                 </TableCell>
-                                <TableCell>{row.location}</TableCell>
+                                {role === 'admin' && <TableCell>{row.location}</TableCell>}
                                 <TableCell>{row.motorStatus}</TableCell>
                                 <TableCell>{row.doorStatus}</TableCell>
                                 <TableCell>

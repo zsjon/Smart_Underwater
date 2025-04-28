@@ -17,7 +17,7 @@ const dummyWellData = {
 };
 
 const WellCardReport = () => {
-    const { id } = useParams(); // 추후 실제 관정 ID 기반 로직
+    const { id } = useParams();
     const handlePrintPDF = async () => {
         const report = document.getElementById('report-content');
         const canvas = await html2canvas(report);
