@@ -7,18 +7,18 @@ import {
 const ConfirmSwitchModal = ({ open, onClose, onConfirm }) => {
     const [step, setStep] = useState(1);
 
-    const handleNext = () => {
+    const handleNext = async () => {
         if (step === 1) {
             setStep(2);
         } else {
-            onConfirm(); // 최종 승인 처리
+            if (onConfirm) await onConfirm(); // await 안전 호출
             handleClose();
         }
     };
 
     const handleClose = () => {
         setStep(1);
-        onClose(); // 모달 닫기
+        if (onClose) onClose(); // 예외 방지용
     };
 
     const message = step === 1
