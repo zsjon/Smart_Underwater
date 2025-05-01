@@ -17,6 +17,7 @@ import UserWellDetail from "./jsx/pages/UserWellDetail";
 import UserWellStatis from "./jsx/pages/UserWellStatis";
 import UserWellStatisDetail from "./jsx/pages/UserWellStatisDetail";
 import UserWellLive from "./jsx/pages/UserWellLive";
+import UserNotiList from "./jsx/pages/UserNotiList";
 
 const Router = () => {
     return (
@@ -38,6 +39,8 @@ const Router = () => {
             <Route path="/userWells/live" element={<UserWellLive />} />
             <Route path="/userWells/statistics" element={<UserWellStatis/>} />
             <Route path="/userWells/:id/statistics" element={<UserWellStatisDetail/>} />
+            <Route path="/users/alerts" element={<UserNotiList/>} />
+            <Route path="/users/alerts/detail/:id" element={<UserNotiDetail/>}
         </Routes>
     );
 };

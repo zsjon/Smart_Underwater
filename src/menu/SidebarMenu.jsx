@@ -17,8 +17,8 @@ export const userMenu = [
     {
         label: '알림',
         children: [
-            { label: '목록', path: '/alerts' },
-            { label: '상세', path: '/alerts/detail' },
+            { label: '목록', path: '/users/alerts' },
+            { label: '상세', path: '/users/alerts/detail' },
         ],
     },
     {
