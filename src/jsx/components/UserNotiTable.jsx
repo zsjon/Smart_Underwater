@@ -10,6 +10,7 @@ import {
     TableRow,
     Typography,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import styles from '../../css/components/WellTable.module.css';
 
 const alertSampleData = [
@@ -34,22 +35,17 @@ const alertSampleData = [
         content: 'CCTV에서 14:10 움직임이 감지되었습니다.',
         date: '2025-04-29 14:10:00',
     },
-    // ... 추가 이벤트
 ];
 
-const UserNotiTable = () => {
+const UserAlertTable = () => {
     const [data] = useState(alertSampleData);
-    const [selectedAlert, setSelectedAlert] = useState(null);
-
-    const handleRowClick = (alert) => {
-        setSelectedAlert(alert);
-    };
+    const navigate = useNavigate();
 
     const alertList = useMemo(() => data, [data]);
 
     return (
         <Box className={styles.container}>
-            <Typography variant="h5" mb={2}></Typography>
+            <Typography variant="h5" mb={2}>알림 목록</Typography>
             <TableContainer component={Paper}>
                 <Table className={styles.table}>
                     <TableHead>
@@ -63,15 +59,16 @@ const UserNotiTable = () => {
                     </TableHead>
                     <TableBody>
                         {alertList.map((alert, index) => (
-                            <TableRow
-                                key={alert.id}
-                                hover
-                                className={styles.clickableRow}
-                                onClick={() => handleRowClick(alert)}
-                            >
+                            <TableRow key={alert.id} hover className={styles.clickableRow}>
                                 <TableCell>{index + 1}</TableCell>
                                 <TableCell>{alert.category}</TableCell>
-                                <TableCell>{alert.title}</TableCell>
+                                <TableCell
+                                    className={styles.clickable}
+                                    onClick={() => navigate(`/users/alerts/detail/${alert.id}`)}
+                                    style={{ color: '#1976d2', cursor: 'pointer', textDecoration: 'underline' }}
+                                >
+                                    {alert.title}
+                                </TableCell>
                                 <TableCell>{alert.content}</TableCell>
                                 <TableCell>{alert.date}</TableCell>
                             </TableRow>
@@ -79,18 +76,8 @@ const UserNotiTable = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-
-            {selectedAlert && (
-                <Box mt={4} className={styles.detailBox}>
-                    <Typography variant="h6">상세 정보</Typography>
-                    <Typography><strong>관정명:</strong> {selectedAlert.category}</Typography>
-                    <Typography><strong>제목:</strong> {selectedAlert.title}</Typography>
-                    <Typography><strong>내용:</strong> {selectedAlert.content}</Typography>
-                    <Typography><strong>날짜:</strong> {selectedAlert.date}</Typography>
-                </Box>
-            )}
         </Box>
     );
 };
 
-export default UserNotiTable;
+export default UserAlertTable;
